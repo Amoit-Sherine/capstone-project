@@ -46,9 +46,9 @@ The primary users of Pets UnPeeved are pet owners looking for an organized way t
 
 ### Mockups
 
-![Mockup 1](/mockups/Capstone-mock ups-1.jpg)
-![Mockup 2](/mockups/Capstone-mock ups-2.jpg)
-![Mockup 3](/mockups/Capstone-mock ups-3.jpg)
+![Mockup-1](/mockups/Capstone-mock-ups-1.jpg)
+![Mockup-2](/mockups/Capstone-mock-ups-2.jpg)
+![Mockup-3](/mockups/Capstone-mock-ups-3.jpg)
 
 
 ### Data
