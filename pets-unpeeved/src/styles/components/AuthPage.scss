@@ -1,0 +1,45 @@
+@import '../_variables.scss';
+@import '../_mixins.scss';
+
+.auth-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: end;
+  min-height: 100vh; // This ensures the container fills the viewport height
+
+  &__submit {
+    background-color: $color-light-grey;
+    border: none;
+    color: black;
+    cursor: pointer;
+    padding: 8px 12px;
+    border: 1px solid $color-slate-grey;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+}
+
+.auth-page__content {
+  padding-bottom: 180px;
+  width: 100%;
+  max-width: 600px; // Adjust this width as necessary
+  // Additional styling for the content
+}
+
+.auth-page__toggle {
+  margin-top: 20px; // Adjust this to control space between the form and the toggle text
+  text-align: center;
+
+  // Responsive adjustments
+  @include for-mobile {
+    margin-top: 15px;
+  }
+  @include for-tablet {
+    margin-top: 18px;
+  }
+  @include for-desktop {
+    margin-top: 20px;
+  }
+
+}
