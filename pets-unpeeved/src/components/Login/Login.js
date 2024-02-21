@@ -1,44 +1,22 @@
-import React, { useState } from 'react';
+// Login.js
+import React from 'react';
+import '../../styles/components/Login.scss'; 
 
-function Login() {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    //  integrate with authentication logic
-    console.log('Logging in with:', username, password);
-    // Reset form fields
-    setUsername('');
-    setPassword('');
-  };
-
+const Login = () => {
   return (
-    <div>
-      <h2>Login</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="username">Username:</label>
-          <input
-            type="text"
-            id="username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-          />
+    <div className="login-modal">
+      <h2 className="login-modal__title">Login</h2>
+      <form className="login-modal__form">
+        <div className="login-modal__form-group">
+          <input type="email" placeholder="Email" className="login-modal__input" />
         </div>
-        <div>
-          <label htmlFor="password">Password:</label>
-          <input
-            type="password"
-            id="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
+        <div className="login-modal__form-group">
+          <input type="password" placeholder="Password" className="login-modal__input" />
         </div>
-        <button type="submit">Login</button>
+        <button type="submit" className="login-modal__submit">Sign In</button>
       </form>
     </div>
   );
-}
+};
 
 export default Login;

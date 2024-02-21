@@ -1,0 +1,48 @@
+
+@import '../_variables.scss';
+
+.auth-modal {
+  background-color: white;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 30%;
+  max-width: 400px; // Sets a max-width for the box for responsive purposes
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: $color-dark-slate-grey;
+
+  &__title {
+    color: $color-dark-slate-grey;
+    margin-bottom: 20px;
+  }
+
+  &__form-group {
+    margin-bottom: 20px;
+    width: 100%;
+  }
+
+  &__input, &__submit {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid $color-slate-grey;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+
+  &__submit {
+    background-color: $color-vibrant-green;
+    border: none;
+    color: white;
+    cursor: pointer;
+
+    &:hover {
+      background-color: darken($color-vibrant-green, 10%);
+    }
+  }
+}
