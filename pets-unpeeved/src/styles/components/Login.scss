@@ -1,5 +1,5 @@
-
 @import '../_variables.scss';
+@import '../_mixins.scss';
 
 .login-modal {
   background-color: white;
@@ -7,8 +7,8 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 30%;
-  max-width: 400px; // Sets a max-width for the box for responsive purposes
+  width: 90%; // Start with a mobile-first width
+  max-width: 400px; // Ensures the modal does not exceed 400px in width
   border-radius: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 20px;
@@ -16,6 +16,15 @@
   flex-direction: column;
   align-items: center;
   color: $color-dark-slate-grey;
+
+  // Apply responsive widths for tablet and desktop
+  @include for-tablet {
+    width: 50%; // Adjust width for tablet devices
+  }
+
+  @include for-desktop {
+    width: 30%; // Adjust width for desktop devices
+  }
 
   &__title {
     color: $color-dark-slate-grey;
