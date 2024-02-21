@@ -1,0 +1,40 @@
+.auth-modal {
+  background-color: white;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 30%;
+  max-width: 400px;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #2C3E40;
+}
+.auth-modal__title {
+  color: #2C3E40;
+  margin-bottom: 20px;
+}
+.auth-modal__form-group {
+  margin-bottom: 20px;
+  width: 100%;
+}
+.auth-modal__input, .auth-modal__submit {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #8FA1A6;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+.auth-modal__submit {
+  background-color: #3BBF82;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+.auth-modal__submit:hover {
+  background-color: #2f9867;
+}
