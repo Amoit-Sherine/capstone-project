@@ -1,0 +1,39 @@
+// PetManagement.scss
+@import '../_variables.scss';
+@import '../_mixins.scss';
+
+
+.pet-management {
+  .pet-management__add-btn {
+    background-color: $color-vibrant-green;
+    color: white;
+    // Add other button styling as per your theme
+  }
+
+  .pet-management__pets-list {
+    display: flex;
+    // Style as needed
+  }
+
+  .pet-icon {
+    // Style your pet icon here, e.g., circular icons with pet names
+  }
+}
+
+// AddPet.scss
+.add-pet-modal {
+  // Modal styling similar to your AuthPage modal
+  .add-pet-modal__form {
+    // Form styling
+  }
+
+  .add-pet-modal__input {
+    // Input styling
+  }
+
+  .add-pet-modal__submit {
+    background-color: $color-vibrant-green;
+    color: white;
+    // Button styling
+  }
+}
