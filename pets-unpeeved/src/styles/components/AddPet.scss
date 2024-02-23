@@ -1,2 +1,46 @@
 @import '../_variables.scss';
 @import '../_mixins.scss';
+
+// AddPet.scss
+.add-pet-modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); // For the overlay
+
+  &__content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    // Define width or max-width as needed
+  }
+
+  // Add styling for form elements here based on your theme
+}
+
+// PetManagement.scss
+.pet-management {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  // Additional centralization and box styling
+}
+
+.pet-management__grid {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr); // 8 columns grid
+  gap: 10px;
+  // Adjust as necessary for your design
+}
+
+.pet-icon {
+  width: 50px; // Adjust based on your design
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
