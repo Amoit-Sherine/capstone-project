@@ -1,30 +1,31 @@
 const knex = require('knex')(require('./../../knexfile').development);
 
 class Pet {
-    constructor({ id, userId, name, type, breed, dob, allergies, medicalHistory, createdAt, updatedAt }) {
+    constructor({ id, user_id, name, type, breed, dob, allergies, medical_history, created_at, updated_at }) {
         this.id = id;
-        this.userId = userId;
+        this.user_id = user_id;
         this.name = name;
         this.type = type;
         this.breed = breed;
         this.dob = dob;
         this.allergies = allergies;
-        this.medicalHistory = medicalHistory;
-        this.createdAt = createdAt;
-        this.updatedAt = updatedAt;
+        this.medical_history = medical_history;
+        this.created_at = created_at;
+        this.updated_at = updated_at;
     }
 
-    static async create({ userId, name, type, breed, dob, allergies, medicalHistory }) {
-        const [newPet] = await knex('pets').insert({
-            user_id: userId,
+    static async create({ user_id, name, type, breed, dob, allergies, medical_history }) {
+        const [id] = await knex('pets').insert({
+            user_id,
             name,
             type,
             breed,
             dob,
             allergies,
-            medical_history: medicalHistory,
-        }).returning('*');
-        return new Pet(newPet);
+            medical_history,
+        });
+
+        return Pet.findById(id);
     }
 
     static async findById(id) {
