@@ -3,10 +3,10 @@ import React, { useState } from 'react';
 import '../../styles/components/AddPet.scss';
 
 // Importing pet images directly
-import dogIcon from '../../assets/pet-icons/dog.jpeg';
-import catIcon from '../../assets/pet-icons/cat.jpeg';
-import birdIcon from '../../assets/pet-icons/dog.jpeg';
-import snakeIcon from '../../assets/pet-icons/cat.jpeg';
+import dogIcon from '../../assets/pet-icons/dog2.jpeg';
+import catIcon from '../../assets/pet-icons/cat2.jpeg';
+import birdIcon from '../../assets/pet-icons/bird.jpeg';
+import snakeIcon from '../../assets/pet-icons/snake.jpeg';
 
 const petIconMapping = {
     dog: dogIcon,
@@ -47,7 +47,10 @@ function AddPet({ onClose, onAddPet }) {
                     <input type="text" value={petName} onChange={(e) => setPetName(e.target.value)} placeholder="Pet's Name" required className="add-pet-modal__input" />
                     <input type="date" value={dateOfBirth} onChange={(e) => setDateOfBirth(e.target.value)} required className="add-pet-modal__input" />
                     <textarea value={allergies} onChange={(e) => setAllergies(e.target.value)} placeholder="Allergies (optional)" className="add-pet-modal__input"></textarea>
-                    <button type="submit" className="add-pet-modal__submit">Save</button>
+                    <div className="add-pet-modal__actions">
+                        <button type="button" onClick={onClose} className="add-pet-modal__button add-pet-modal__button--close">Close</button>
+                        <button type="submit" className="add-pet-modal__button add-pet-modal__button--save">Save</button>
+                    </div>
                 </form>
             </div>
         </div>

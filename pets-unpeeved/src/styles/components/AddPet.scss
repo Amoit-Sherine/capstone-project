@@ -30,9 +30,49 @@
     margin-bottom: 20px;
   }
 
-  &__input, &__submit {
+  &__input {
     margin: 10px 0;
-    width: 100%;
-    // Additional input and button styling
+    width: 70%;
+    border: 10px;
+    padding: 10px 20px;
+    border-radius: 5px;
+  }
+  &__actions {
+    display: flex;
+    justify-content: space-between; // This will push the close button to the left and the save button to the right
+    margin-top: 20px; // Adjust as needed
+  }
+
+  &__button {
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+
+    &--save {
+      background-color: $color-vibrant-green;
+      color: white;
+
+      &:hover {
+        background-color: darken($color-vibrant-green, 10%);
+      }
+    }
+
+    &--close {
+      background-color: $color-coral-red;
+      color: white;
+
+      &:hover {
+        background-color: darken($color-coral-red, 10%);
+      }
+    }
   }
 }
+.pet-icon__image {
+  width: 50px; // Adjust size as needed
+  height: 50px; // Ensure height matches width for a circle
+  border-radius: 50%; // Makes the icon circular
+  object-fit: cover; // Ensures the image covers the circle area without stretching
+}
+
