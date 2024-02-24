@@ -21,6 +21,18 @@ router.post('/', async (req, res) => {
     }
 });
 
+// Get a user's pets
+router.get('/', async (req, res) => {
+    try {
+        const userId = req.user.userId;
+        const pets = await Pet.findByUserId(userId);
+        res.json(pets);
+    } catch (error) {
+        console.log(error);
+        res.status(500).send({ message: "Server error" });
+    }
+});
+
 // Get a single pet
 router.get('/:id', async (req, res) => {
     try {

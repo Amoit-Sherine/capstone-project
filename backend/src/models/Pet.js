@@ -34,6 +34,10 @@ class Pet {
         return new Pet(pet);
     }
 
+    static async findByUserId(userId) {
+        return knex('pets').where({ user_id: userId });
+    }
+
     static async update(id, { name, type, breed, dob, allergies, medical_history }) {
         await knex('pets').where({ id }).update({
             name,
