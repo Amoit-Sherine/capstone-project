@@ -11,9 +11,9 @@ function App() {
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Registration />} />
-          <Route path="/authentication" element={<AuthPage />} />
-          <Route path="/add-pet" element={<AddPet />} />
+          <Route path="/" element={<AuthPage />} />
           <Route path="/pet-management" element={<PetManagement />} />
+          <Route path="/addpet" element={<AddPet />} />
       </Routes>
     </Router>
   );

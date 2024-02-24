@@ -10,11 +10,13 @@
   padding-top: 10%;
 
   &__add-btn {
-      padding: 8px 12px;
+      padding: 15px 15px;
+      width: 20%;
       border: 1px solid $color-slate-grey;
       border-radius: 5px;
       margin-bottom: 40px;
       color: white;
+      font-weight: bold;
       background-color: $color-vibrant-green;
       cursor: pointer;
     &:hover {
@@ -37,10 +39,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 150px;
+    height: 150px;
 
     &__image {
-      width: 50px; // Adjust size as needed
-      height: 50px; // Ensure height matches width for a circle
+      width: 150px; // Adjust size as needed
+      height: 150px; // Ensure height matches width for a circle
       border-radius: 50%; // Makes the icon circular
       object-fit: cover; // Ensures the image covers the circle area without stretching
     }
