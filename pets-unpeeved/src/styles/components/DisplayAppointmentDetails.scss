@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 @import '../_variables.scss';
 @import '../_mixins.scss';
 @import '../global.scss';
+=======
+// DisplayAppointmentDetails.scss
+@import '../_variables.scss';
+@import '../_mixins.scss';
+>>>>>>> 465a985457d2f2df7bbdf08abacbe8a57f9ef7dc
 
 .appointment-details-modal {
   display: flex;
@@ -20,10 +26,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+<<<<<<< HEAD
     @include for-mobile {
       width: 90%; // Adjusts width for mobile to ensure it fits within the screen
       max-width: 400px; // Ensures modal does not become too wide on larger mobile devices
     }
+=======
+>>>>>>> 465a985457d2f2df7bbdf08abacbe8a57f9ef7dc
   }
 
   &__close-btn {
