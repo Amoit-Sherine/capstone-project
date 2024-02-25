@@ -1,57 +1,81 @@
 // PetManagement.scss
 @import '../_variables.scss';
 @import '../_mixins.scss';
+@import "../global.scss";
 
-// PetManagement.scss
+
 .pet-management {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding-top: 10%;
+  align-items: start;
+  padding: 20px;
+  box-sizing: border-box;
+  width: 100%;
+  font-family: 'RegularFont', sans-serif;
+  @include for-tablet-and-up {
+    margin-left: 22%; // Matches the header's width to ensure no overlap
+    width: 78%; // Adjusts the width to fill the remaining space
+  }
+  @include for-desktop{
+    margin-left: 20%
+  }
+  @include  for-mid-desktop{
+    margin-left: 20%
+  }
+
 
   &__add-btn {
-      padding: 15px 15px;
-      width: 20%;
-      border: 1px solid $color-slate-grey;
-      border-radius: 5px;
-      margin-bottom: 40px;
-      color: white;
-      font-weight: bold;
-      background-color: $color-vibrant-green;
-      cursor: pointer;
+    padding: 10px 10px;
+    width: 30%;
+    margin-bottom: 20px;
+    border: 1px solid $color-slate-grey;
+    border-radius: 5px;
+    color: white;
+    background-color: $color-vibrant-green;
+    font-family: 'RegularFont', sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+    @include for-mid-desktop{
+      font-size: 1.6rem;
+    }
     &:hover {
-        background-color: darken($color-vibrant-green, 10%);
-      }
+      background-color: darken($color-vibrant-green, 9%);
+      box-shadow: 0 2px 6px $color-coral-red;
+    }
   }
 
   &__pets-display {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); // Creates 3 columns
-    grid-template-rows: repeat(3, 1fr); // Creates 3 rows
-    gap: 70px; // Adjust the space between the grid items
-    justify-content: center;
-    align-items: center;
-    max-width: 700px; // Adjust based on your layout needs
-    margin: auto; // Center the grid in the available space
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 40px;
+    width: 100%;
+    max-width: calc(100% - 20vw); // Adjust based on header width
+    margin-right: auto;
+    margin-left: auto;
+    @include for-tablet-and-up {
+      max-width: 75%; // Adjust if necessary for larger screens
+      gap: 95px;
+
+    }
   }
 
   &__pet-icon {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 150px;
-    height: 150px;
-
-    &__image {
-      width: 150px; // Adjust size as needed
-      height: 150px; // Ensure height matches width for a circle
-      border-radius: 50%; // Makes the icon circular
-      object-fit: cover; // Ensures the image covers the circle area without stretching
+    // Adjustments for responsive icon sizing and font scaling
+    margin: 25px;
+    @include for-mobile {
+      width: 25px; // Smaller icons for mobile
+      height: 25px;
+      &__name {
+        font-size: 0.7em; // Smaller text on mobile
+      }
     }
-
-    &__name {
-      margin-top: 5px;
-      // Style for the pet name
+    @include for-tablet-and-up {
+      width: 15px; // Larger icons for tablets and up
+      height: 45px;
+      &__name {
+        font-size: 1em; // Adjust font size for readability
+      }
     }
   }
 }

@@ -1,0 +1,99 @@
+@import '../_variables.scss';
+@import '../_mixins.scss';
+
+.header {
+  @include for-tablet-and-up {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 20%;
+    height: 100%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 20px;
+    border-right: 1px solid $color-slate-grey;
+
+    &__nav{
+      height: 70%;
+    }
+
+    &__nav-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      padding: 0;
+      margin: 0;
+    }
+    list{
+      margin: 30px;
+    }
+
+    &__nav-item {
+      border-radius: 5px;
+      color: $color-dark-slate-grey;
+      text-decoration: none;
+      display: flex;
+      padding-left: 7px;
+      flex-wrap: wrap;
+      align-content: flex-end;
+      justify-content: flex-start;
+      height: 50px; // Adjusts space above and below each item
+      @include for-mid-desktop{
+        font-size: 1.3rem;
+      }
+      @include for-large-desktop{
+        font-size: 1.8rem;
+      }
+      &.active {
+        border-left: 4px solid $color-vibrant-green;
+      }
+      &:hover {
+        box-shadow: 0 2px 5px $color-coral-red;
+      }
+    }
+  }
+
+  @include for-mobile {
+    position: static;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: auto;
+    width: 100%;
+
+    &__nav-list {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+      list-style: none;
+      background-color: $color-light-grey;
+    }
+  }
+
+  &__top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 20px;
+  }
+
+  &__logo, &__profile {
+    margin-bottom: 20px;
+    text-decoration: none;
+    color: $color-dark-slate-grey;
+    font-size: 1rem;
+    @include for-mid-desktop{
+      font-size: 1.6rem;
+    }
+    @include for-large-desktop{
+      font-size: 1.8rem;
+    }
+  }
+}
