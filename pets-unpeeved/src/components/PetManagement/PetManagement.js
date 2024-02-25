@@ -11,7 +11,7 @@ function PetManagement() {
     const handleAddPet = (petDetails) => {
         setPets([...pets, petDetails]);
         setIsAddPetOpen(false);
-    };
+    };git
 
     return (
         <div className="pet-management">
