@@ -13,8 +13,8 @@
   width: 100%;
   font-family: 'RegularFont', sans-serif;
   @include for-tablet-and-up {
-    margin-left: 22%; // Matches the header's width to ensure no overlap
-    width: 78%; // Adjusts the width to fill the remaining space
+    margin-left: 22%;
+    width: 78%;
   }
   @include for-desktop{
     margin-left: 20%
