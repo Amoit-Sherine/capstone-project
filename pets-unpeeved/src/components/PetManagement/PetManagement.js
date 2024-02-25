@@ -15,7 +15,7 @@ function PetManagement() {
 
     return (
         <div className="pet-management">
-            <button onClick={() => setIsAddPetOpen(true)} className="pet-management__add-btn">Add Pet</button>
+            <button onClick={() => setIsAddPetOpen(true)} className="pet-management__add-btn">+ Add Pet</button>
             {isAddPetOpen && <AddPet onClose={() => setIsAddPetOpen(false)} onAddPet={handleAddPet} />}
             <div className="pet-management__pets-display">
                 {pets.map((pet, index) => (

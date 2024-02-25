@@ -24,10 +24,11 @@
   }
 
   &__icon {
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
     margin-bottom: 20px;
+    border: 0.3px solid lightgray;
   }
 
   &__input {
@@ -40,7 +41,7 @@
   &__actions {
     display: flex;
     justify-content: space-between; // This will push the close button to the left and the save button to the right
-    margin-top: 20px; // Adjust as needed
+    margin-top: 20px;
   }
 
   &__button {
@@ -70,9 +71,10 @@
   }
 }
 .pet-icon__image {
-  width: 50px; // Adjust size as needed
-  height: 50px; // Ensure height matches width for a circle
+  width: 150px; // Adjust size as needed
+  height: 150px; // Ensure height matches width for a circle
   border-radius: 50%; // Makes the icon circular
   object-fit: cover; // Ensures the image covers the circle area without stretching
+  border: 0.3px solid lightgray;
 }
 

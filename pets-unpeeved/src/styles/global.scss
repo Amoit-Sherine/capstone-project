@@ -1,0 +1,17 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'RegularFont', sans-serif;
+  font-weight: bolder;
+}
+#root, .app-container {
+  position: relative;
+  z-index: 1;
+}
+@font-face {
+  font-family: 'RegularFont';
+  src: url('../assets/fonts/Magda-Thin-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
