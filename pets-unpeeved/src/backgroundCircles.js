@@ -12,10 +12,10 @@ export function createBackgroundCircles() {
             borderRadius: '50%',
             gap: '20px',
             position: 'absolute',
-            backgroundColor: 'white',
+            backgroundImage: './assets/pet-icons/paw.svg',
             backgroundSize: 'cover',
-            top: `${Math.random() * maxY}px`, // Adjusted to prevent overflow
-            left: `${Math.random() * maxX}px`, // Adjusted to prevent overflow
+            top: `${Math.random() * maxY}px`,
+            left: `${Math.random() * maxX}px`,
             zIndex: '-1',
         });
         document.body.appendChild(circle);
