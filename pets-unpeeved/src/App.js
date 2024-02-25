@@ -8,6 +8,7 @@ import PetManagement from "./components/PetManagement/PetManagement";
 import MainLayout from "./components/MainLayout";
 import './styles/global.scss';
 import { createBackgroundCircles } from './backgroundCircles';
+import HomePage from "./components/HomePage/HomePage";
 
 function App() {
     useEffect(() => {
@@ -23,6 +24,7 @@ function App() {
                 <Route element={<MainLayout />}>
                     <Route path="/pet-management" element={<PetManagement />} />
                     <Route path="/addpet" element={<AddPet />} />
+                    <Route path="/home" element={<HomePage />} />
                 </Route>
             </Routes>
         </Router>

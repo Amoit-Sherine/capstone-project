@@ -12,9 +12,9 @@
   box-sizing: border-box;
   width: 100%;
   font-family: 'RegularFont', sans-serif;
-  @include for-tablet-and-up {
-    margin-left: 22%;
-    width: 78%;
+  @include for-tablet {
+    margin-left: 24%;
+    width: 68%;
   }
   @include for-desktop{
     margin-left: 20%

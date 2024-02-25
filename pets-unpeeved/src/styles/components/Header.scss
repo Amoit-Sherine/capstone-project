@@ -40,7 +40,7 @@
       flex-wrap: wrap;
       align-content: flex-end;
       justify-content: flex-start;
-      height: 50px; // Adjusts space above and below each item
+      height: 40px;
       @include for-mid-desktop{
         font-size: 1.3rem;
       }
