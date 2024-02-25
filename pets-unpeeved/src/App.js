@@ -9,6 +9,7 @@ import MainLayout from "./components/MainLayout";
 import './styles/global.scss';
 import { createBackgroundCircles } from './backgroundCircles';
 import HomePage from "./components/HomePage/HomePage";
+import Notifications from "./components/Notifications/Notifications";
 
 function App() {
     useEffect(() => {
@@ -25,6 +26,7 @@ function App() {
                     <Route path="/pet-management" element={<PetManagement />} />
                     <Route path="/addpet" element={<AddPet />} />
                     <Route path="/home" element={<HomePage />} />
+                    <Route path="/notifications" element={<Notifications />} />
                 </Route>
             </Routes>
         </Router>
