@@ -3,6 +3,7 @@ import '../../styles/components/AddAppointment.scss';
 
 // Assume `pets` is passed as a prop or fetched from global state/context
 function AddAppointment({ onSave, onClose, pets }) {
+
     const [selectedPet, setSelectedPet] = useState('');
     const [appointmentType, setAppointmentType] = useState('');
     const [date, setDate] = useState('');
@@ -11,6 +12,14 @@ function AddAppointment({ onSave, onClose, pets }) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        const appointmentDateTime = new Date(`${date}T${time}`);
+        const now = new Date();
+
+        if (appointmentDateTime <= now) {
+            alert("Please select a future date and time for the appointment.");
+            return;
+        }
+
         onSave({
             pet: pets.find(pet => pet.name === selectedPet),
             type: appointmentType,
@@ -31,6 +40,13 @@ function AddAppointment({ onSave, onClose, pets }) {
                     </select>
                     <select value={appointmentType} onChange={(e) => setAppointmentType(e.target.value)} className="form-input">
                         <option value="">Select Appointment Type</option>
+                        <option value="Wellness Exams">Wellness Exams</option>
+                        <option value="Vaccination Appointments">Vaccination Appointments</option>
+                        <option value="Dental Care">Dental Care</option>
+                        <option value="Grooming">Grooming</option>
+                        <option value="Nutritional Counseling">Nutritional Counseling</option>
+                        <option value="Geriatric Care">Geriatric Care</option>
+
                         {/* Add options here */}
                     </select>
                     <input type="date" value={date} onChange={(e) => setDate(e.target.value)} className="form-input" />

@@ -23,6 +23,17 @@ function Notifications() {
 
 
     const handleAddAppointment = (appointmentDetails) => {
+        const now = new Date();
+        const appointmentDateTime = new Date(appointmentDetails.date);
+        const reminderTime = new Date(appointmentDateTime.getTime() - 60 * 60 * 1000); // 1 hour before
+
+        if (reminderTime > now) {
+            const timeout = reminderTime.getTime() - now.getTime();
+            setTimeout(() => {
+                alert(`Reminder: You have an appointment for ${appointmentDetails.pet.name} coming up in an hour.`);
+            }, timeout);
+        }
+
         setAppointments([...appointments, appointmentDetails]);
         setIsAddAppointmentOpen(false);
     };

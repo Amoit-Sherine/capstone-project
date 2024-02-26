@@ -38,13 +38,20 @@
     gap: 10px;
   }
 
-  .appointment-item {
+  .notification-item {
     background-color: $color-light-grey;
     border-radius: 5px;
     padding: 10px;
-    margin-top: 10px;
+    display: flex;
+    gap: 15px;
 
-    .appointment-details {
+    .notification-item__icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+    }
+
+    .notification-item__details {
       display: flex;
       flex-direction: column;
       gap: 5px;
