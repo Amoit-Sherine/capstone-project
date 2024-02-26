@@ -2,27 +2,46 @@
 @import '../_mixins.scss';
 
 .notifications {
-  @include for-mobile {
-    &__add-btn {
-      display: block;
-      margin: 0 auto; // Center button
-      margin-top: 60px; // Adjust for fixed header
-      background-color: $color-vibrant-green; // Ensure uniform button color
-      &:hover {
-        background-color: darken($color-vibrant-green, 10%);
-      }
-    }
+  // Positioning adjustments
+  @include for-tablet-and-up {
+    padding-left: 20%; // Ensure content is to the right of the header
+    width: calc(80% - 20px); // Adjust to not extend display size horizontally
+  }
+  @include for-mobile{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+  }
 
-    &__list {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin-top: 20px; // Spacing after the add button
+  &__add-btn {
+    background-color: $color-vibrant-green;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
+    &:hover {
+      background-color: darken($color-vibrant-green, 10%);
+      box-shadow: 0 2px 5px $color-coral-red;
     }
   }
 
-  @include for-tablet-and-up {
-    padding-left: 22%; // Adjust to not be covered by the header
-    width: 78%; // Adjust to fit the space available on the right
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .appointment-item {
+    background-color: $color-light-grey;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 10px;
+
+    .appointment-details {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
   }
 }

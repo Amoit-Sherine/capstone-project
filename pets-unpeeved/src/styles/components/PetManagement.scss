@@ -4,7 +4,7 @@
 .pet-management {
   // Ensure content is to the right of the fixed header and not blocked
   @include for-mobile{
-    margin-top: 15%;
+    margin-top: 20px;
   }
   @include for-tablet {
     margin-left: 30%;
@@ -23,10 +23,10 @@
     color: white;
     cursor: pointer;
     padding: 10px ;
-    border-radius: 6%;
+    border-radius: 5px;
     @include for-mobile{
-      margin-top: 5%;
-      margin-left: 25%;
+      margin-top: 5px;
+      margin-left: 40%;
     }
     &:hover {
       background-color: darken($color-vibrant-green, 10%);
