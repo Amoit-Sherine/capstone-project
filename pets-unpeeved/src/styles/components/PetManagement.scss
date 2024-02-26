@@ -15,6 +15,10 @@
     margin-left: 30%;
     width: calc(60% - 20px);
     margin-top: 3%;
+    font-size: 18px;
+  }
+  @include for-large-desktop{
+    font-size: 25px;
   }
 
   &__add-btn {
@@ -27,6 +31,9 @@
     @include for-mobile{
       margin-top: 5px;
       margin-left: 40%;
+    }
+    @include for-large-desktop{
+      font-size: 25px;
     }
     &:hover {
       background-color: darken($color-vibrant-green, 10%);
