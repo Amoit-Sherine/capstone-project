@@ -19,10 +19,10 @@ const mockUsers = [
 ];
 
 const mockPosts = [
-    { id: 1, username: "Alice", avatar: male, text: "What a lovely day! Lorem Ipsum is simply dummy text of the printing and typesetting industry.Proin eleifend eu ligula a vulputate. Morbi aliquam tortor at nunc venenatis, id viverra mauris lacinia. Suspendisse ex magna, venenatis vitae nulla in, sodales tincidunt urna.", likes: 0, dislikes: 0, comments: [] },
-    { id: 2, username: "Bob", avatar: male2, text: "Just adopted a new pet! Aenean pretium vitae est quis dictum. Mauris ullamcorper elementum tortor eget bibendum. Maecenas porta dapibus dui, ac placerat ipsum sollicitudin eu. Etiam dapibus arcu quis enim efficitur tincidunt. Vivamus aliquet interdum vestibulum.", likes: 0, dislikes: 0, comments: [] },
-    { id: 3, username: "Charlie", avatar: male3, text: "Looking for pet care tips.", likes: 0, dislikes: 0, comments: [] },
-    { id: 4, username: "Dana", avatar: female, text: "Happy to join this community! Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas tristique non ante vel semper. Nam varius sodales sapien non facilisis. Morbi laoreet dui a odio pellentesque vehicula.", likes: 0, dislikes: 0, comments: [] },
+    { id: 1, username: "Alice", avatar: male, text: "What a lovely day🐶! Lorem Ipsum is simply dummy text of the printing and typesetting industry.Proin eleifend eu ligula a vulputate. Morbi aliquam tortor at nunc venenatis, id viverra mauris lacinia. Suspendisse ex magna, venenatis vitae nulla in, sodales tincidunt urna.", likes: 0, dislikes: 0, comments: [] },
+    { id: 2, username: "Bob", avatar: male2, text: "Just adopted a new pet 🐈! Aenean pretium vitae est quis dictum. Mauris ullamcorper elementum tortor eget bibendum. Maecenas porta dapibus dui, ac placerat ipsum sollicitudin eu. Etiam dapibus arcu quis enim efficitur tincidunt. Vivamus aliquet interdum vestibulum.", likes: 0, dislikes: 0, comments: [] },
+    { id: 3, username: "Charlie", avatar: male3, text: "🥹Looking for pet care tips.", likes: 0, dislikes: 0, comments: [] },
+    { id: 4, username: "Dana", avatar: female, text: "Happy to join this community🐾🤗! Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas tristique non ante vel semper. Nam varius sodales sapien non facilisis. Morbi laoreet dui a odio pellentesque vehicula.", likes: 0, dislikes: 0, comments: [] },
 ];
 
 
