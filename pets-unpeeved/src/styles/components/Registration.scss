@@ -47,6 +47,7 @@
     border: none;
     color: white;
     cursor: pointer;
+    border-radius: 5px;
 
     &:hover {
       background-color: darken($color-vibrant-green, 10%);

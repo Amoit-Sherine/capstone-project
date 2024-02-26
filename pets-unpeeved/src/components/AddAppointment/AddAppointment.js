@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import '../../styles/components/AddAppointment.scss';
 
-function AddAppointment({ pets, onSave, onClose }) {
-    const [selectedPet, setSelectedPet] = useState(pets.length > 0 ? pets[0].name : '');
+// Assume `pets` is passed as a prop or fetched from global state/context
+function AddAppointment({ onSave, onClose, pets }) {
+
+    const [selectedPet, setSelectedPet] = useState('');
     const [appointmentType, setAppointmentType] = useState('');
     const [date, setDate] = useState('');
     const [time, setTime] = useState('');
@@ -10,38 +12,49 @@ function AddAppointment({ pets, onSave, onClose }) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // This should include a method to save the appointment in the database
+        const appointmentDateTime = new Date(`${date}T${time}`);
+        const now = new Date();
+
+        if (appointmentDateTime <= now) {
+            alert("Please select a future date and time for the appointment.");
+            return;
+        }
+
         onSave({
             pet: pets.find(pet => pet.name === selectedPet),
             type: appointmentType,
             date: `${date} ${time}`,
             location,
         });
-        onClose();
     };
 
     return (
         <div className="add-appointment-modal">
             <div className="add-appointment-modal__content">
                 <form onSubmit={handleSubmit} className="add-appointment-modal__form">
-                    <select value={selectedPet} onChange={(e) => setSelectedPet(e.target.value)} className="add-appointment-modal__input">
+                    <select value={selectedPet} onChange={(e) => setSelectedPet(e.target.value)} className="form-input">
+                        <option value="">Select a Pet</option>
                         {pets.map((pet, index) => (
                             <option key={index} value={pet.name}>{pet.name}</option>
                         ))}
                     </select>
-                    <select value={appointmentType} onChange={(e) => setAppointmentType(e.target.value)} className="add-appointment-modal__input">
+                    <select value={appointmentType} onChange={(e) => setAppointmentType(e.target.value)} className="form-input">
                         <option value="">Select Appointment Type</option>
                         <option value="Wellness Exams">Wellness Exams</option>
                         <option value="Vaccination Appointments">Vaccination Appointments</option>
-                        <option value="Spay/Neuter Appointments">Spay/Neuter Appointments</option>
-                        {/* Add other appointment types here */}
+                        <option value="Dental Care">Dental Care</option>
+                        <option value="Grooming">Grooming</option>
+                        <option value="Nutritional Counseling">Nutritional Counseling</option>
+                        <option value="Geriatric Care">Geriatric Care</option>
+
+                        {/* Add options here */}
                     </select>
-                    <input type="date" value={date} onChange={(e) => setDate(e.target.value)} required className="add-appointment-modal__input" />
-                    <input type="time" value={time} onChange={(e) => setTime(e.target.value)} required className="add-appointment-modal__input" />
-                    <input type="text" value={location} onChange={(e) => setLocation(e.target.value)} placeholder="Location" required className="add-appointment-modal__input" />
-                    <div className="add-appointment-modal__actions">
-                        <button type="button" onClick={onClose} className="add-appointment-modal__button add-appointment-modal__button--close">Close</button>
-                        <button type="submit" className="add-appointment-modal__button add-appointment-modal__button--save">Save</button>
+                    <input type="date" value={date} onChange={(e) => setDate(e.target.value)} className="form-input" />
+                    <input type="time" value={time} onChange={(e) => setTime(e.target.value)} className="form-input" />
+                    <input type="text" value={location} onChange={(e) => setLocation(e.target.value)} placeholder="Location" className="form-input" />
+                    <div className="actions">
+                        <button type="button" onClick={onClose} className="action-btn close">Close</button>
+                        <button type="submit" className="action-btn save">Save</button>
                     </div>
                 </form>
             </div>

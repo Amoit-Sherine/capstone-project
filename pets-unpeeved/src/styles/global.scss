@@ -1,17 +1,64 @@
+// Global font and body styling
+@import "mixins";
+
 html, body {
   margin: 0;
   padding: 0;
   height: 100%;
   font-family: 'RegularFont', sans-serif;
   font-weight: bolder;
+  max-width: 100%;
+  background-image: url("../assets/pet-icons/paw.jpeg");
+
 }
+
 #root, .app-container {
   position: relative;
   z-index: 1;
 }
+
 @font-face {
   font-family: 'RegularFont';
   src: url('../assets/fonts/Magda-Thin-Regular.otf') format('opentype');
-  font-weight: normal;
-  font-style: normal;
+}
+
+// Mobile-specific styles
+@include for-mobile {
+  .header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
+
+    .logo {
+      flex-grow: 1;
+    }
+
+    .user-logo {
+      order: -1; // Moves user logo to the right of the logo
+    }
+
+    .header-list {
+      display: none; // Hides the header list on mobile
+    }
+  }
+
+  .header-bottom {
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: white;
+  }
+
+  .modal-component {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%; // Ensures modal fits within display
+    max-width: 400px; // Limits modal width on larger devices
+  }
 }

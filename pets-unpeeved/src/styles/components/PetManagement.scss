@@ -1,81 +1,82 @@
-// PetManagement.scss
 @import '../_variables.scss';
 @import '../_mixins.scss';
-@import "../global.scss";
-
 
 .pet-management {
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  padding: 20px;
-  box-sizing: border-box;
-  width: 100%;
-  font-family: 'RegularFont', sans-serif;
+  // Ensure content is to the right of the fixed header and not blocked
+  @include for-mobile{
+    margin-top: 20px;
+  }
   @include for-tablet {
-    margin-left: 24%;
-    width: 68%;
+    margin-left: 30%;
+    width: calc(60% - 20px);
+    margin-top: 3%;
   }
   @include for-desktop{
-    margin-left: 20%
+    margin-left: 30%;
+    width: calc(60% - 20px);
+    margin-top: 3%;
+    font-size: 18px;
   }
-  @include  for-mid-desktop{
-    margin-left: 20%
+  @include for-large-desktop{
+    font-size: 25px;
   }
-
 
   &__add-btn {
-    padding: 10px 10px;
-    width: 30%;
-    margin-bottom: 20px;
-    border: 1px solid $color-slate-grey;
-    border-radius: 5px;
-    color: white;
     background-color: $color-vibrant-green;
-    font-family: 'RegularFont', sans-serif;
-    font-weight: bold;
+    border: none;
+    color: white;
     cursor: pointer;
-    @include for-mid-desktop{
-      font-size: 1.6rem;
+    padding: 10px ;
+    border-radius: 5px;
+    @include for-mobile{
+      margin-top: 5px;
+      margin-left: 40%;
+    }
+    @include for-large-desktop{
+      font-size: 25px;
     }
     &:hover {
-      background-color: darken($color-vibrant-green, 9%);
-      box-shadow: 0 2px 6px $color-coral-red;
+      background-color: darken($color-vibrant-green, 10%);
+    }
+    &:active {
+      transform: scale(0.98);
     }
   }
 
   &__pets-display {
+    margin-top: 10%;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    gap: 40px;
-    width: 100%;
-    max-width: calc(100% - 20vw); // Adjust based on header width
-    margin-right: auto;
-    margin-left: auto;
-    @include for-tablet-and-up {
-      max-width: 75%; // Adjust if necessary for larger screens
-      gap: 95px;
+    gap: 60px;
 
+    @include for-mobile {
+      grid-template-columns: repeat(3, 1fr); // Adjust for smaller icons on mobile
+      padding-left: 80px;
+      margin-top: 20%;
+      gap: 200px;
+    }
+    @include for-tablet{
+      grid-template-columns: repeat(2, 0.5fr);
+      padding-left: 0;
+      margin-top: 10%;
+      gap: 165px;
+    }
+    @include for-desktop{
+      grid-template-columns: repeat(4, 1fr);
+      gap: 165px;
     }
   }
 
   &__pet-icon {
-    // Adjustments for responsive icon sizing and font scaling
-    margin: 25px;
+    width: 50px;
+    height: 50px;
+    // Ensure icons fit in a 3x3 grid within available space
     @include for-mobile {
-      width: 25px; // Smaller icons for mobile
-      height: 25px;
-      &__name {
-        font-size: 0.7em; // Smaller text on mobile
-      }
+      width: 10px; // Smaller icons for mobile
+      height: 10px;
     }
-    @include for-tablet-and-up {
-      width: 15px; // Larger icons for tablets and up
-      height: 45px;
-      &__name {
-        font-size: 1em; // Adjust font size for readability
-      }
+    @include for-tablet{
+      width: 10px; // Smaller icons for mobile
+      height: 10px;
     }
   }
 }

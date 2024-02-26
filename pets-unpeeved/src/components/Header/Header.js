@@ -8,11 +8,11 @@ function Header() {
         <div className="header">
             <div className="header__top">
                 {/* Your logo here */}
-                <NavLink to="/" className="header__logo">Pets 🐾 Unpeeved</NavLink>
+                <NavLink to="/" className="header__logo">PETS 🐾 UNPEEVED</NavLink>
                 {/* User icon - assuming you have a way to get the user's profile picture */}
-                <div className="header__profile">
+                <NavLink to="/user-profile" className="header__profile">
                     <img src="../../assets/male-icons/male3.jpeg" alt="User" className="header__profile-icon" />
-                </div>
+                </NavLink>
             </div>
             <nav className="header__nav">
                 <ul className="header__nav-list">

@@ -7,14 +7,12 @@ import AddPet from "./components/AddPet/AddPet";
 import PetManagement from "./components/PetManagement/PetManagement";
 import MainLayout from "./components/MainLayout";
 import './styles/global.scss';
-import { createBackgroundCircles } from './backgroundCircles';
 import HomePage from "./components/HomePage/HomePage";
 import Notifications from "./components/Notifications/Notifications";
+import UserProfile from "./components/UserProfile/UserProfile";
 
 function App() {
-    useEffect(() => {
-        createBackgroundCircles();
-    }, []);
+
     return (
         <Router>
             <Routes>
@@ -23,6 +21,7 @@ function App() {
                 <Route path="/register" element={<Registration />} />
                 {/* Wrap routes that need the Header within the MainLayout */}
                 <Route element={<MainLayout />}>
+                    <Route path="/user-profile" element={<UserProfile />} />
                     <Route path="/pet-management" element={<PetManagement />} />
                     <Route path="/addpet" element={<AddPet />} />
                     <Route path="/home" element={<HomePage />} />

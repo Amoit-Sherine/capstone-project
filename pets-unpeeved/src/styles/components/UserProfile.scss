@@ -1,0 +1,86 @@
+@import '../_variables.scss';
+@import '../_mixins.scss';
+
+.user-profile {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  box-sizing: border-box;
+
+
+  @include for-mobile {
+    width: 250px;
+    margin-left: 20%;
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  @include for-tablet {
+    margin-left: 30%;
+    width: 300px;
+    display: flex;
+    align-items: center;
+  }
+  @include for-desktop {
+    margin-left: 30%;
+    width: 400px;
+    display: flex;
+    align-items: center;
+  }
+  @include for-mid-desktop {
+    margin-left: 26%;
+    width: 500px;
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+  }
+  @include for-large-desktop {
+    margin-left: 20%;
+    font-size: 24px;
+    width: 600px;
+    display: flex;
+    align-items: center;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    label {
+      display: flex;
+      flex-direction: column;
+      color: $color-dark-slate-grey;
+    }
+
+    input[type="text"], input[type="number"], input[type="email"], input[type="file"] {
+      padding: 5px;
+      margin-top: 5px;
+      border: 1px solid $color-slate-grey;
+      border-radius: 5px;
+    }
+
+    .edit-btn, .sign-out-btn {
+      padding: 10px;
+      border: none;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+
+      &:hover {
+        background-color: darken($color-vibrant-green, 10%);
+      }
+    }
+
+    .edit-btn {
+      background-color: $color-vibrant-green;
+    }
+
+    .sign-out-btn {
+      background-color: $color-coral-red;
+    }
+  }
+}
