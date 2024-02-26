@@ -55,6 +55,7 @@
     }
     @include for-desktop{
       grid-template-columns: repeat(4, 1fr);
+      gap: 165px;
     }
   }
 

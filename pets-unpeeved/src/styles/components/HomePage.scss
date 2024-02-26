@@ -3,11 +3,10 @@
 
 .home-page {
   @include for-mobile {
-    padding: 20px;
-    padding-top: 60px; // Adjust for fixed header
+    margin-top: 20px;
 
     .post-form {
-      width: 100%;
+      width: 150px;
     }
 
     .posts {
@@ -15,15 +14,23 @@
       flex-direction: column;
     }
   }
+  @include for-mobile{
+
+  }
+  @include for-tablet {
+    margin-left: 30%;
+    width: calc(60% - 20px);
+    margin-top: 3%;
+  }
+  @include for-desktop{
+    margin-left: 30%;
+    width: calc(60% - 20px);
+    margin-top: 3%;
+  }
 
   @include for-tablet-and-up {
-    margin-left: 20%;
-    width: 80%;
-
     .post-form, .posts {
       max-width: 760px;
-      margin-right: auto;
-      margin-left: auto;
     }
   }
 }

@@ -18,6 +18,7 @@ const petIconMapping = {
 function AddPet({ onClose, onAddPet }) {
     const [petType, setPetType] = useState('dog');
     const [petName, setPetName] = useState('');
+    const [petBreed, setPetBreed] = useState('');
     const [dateOfBirth, setDateOfBirth] = useState('');
     const [allergies, setAllergies] = useState('');
 
@@ -27,6 +28,7 @@ function AddPet({ onClose, onAddPet }) {
             type: petType,
             name: petName,
             dob: dateOfBirth,
+            breed : petBreed,
             allergies,
             icon: petIconMapping[petType],
         });
@@ -46,6 +48,7 @@ function AddPet({ onClose, onAddPet }) {
                     </select>
                     <input type="text" value={petName} onChange={(e) => setPetName(e.target.value)} placeholder="Pet's Name" required className="add-pet-modal__input" />
                     <input type="date" value={dateOfBirth} onChange={(e) => setDateOfBirth(e.target.value)} required className="add-pet-modal__input" />
+                    <input type="text" value={petBreed} onChange={(e) => setPetBreed(e.target.value)} placeholder="Pet's Breed" required className="add-pet-modal__input" />
                     <textarea value={allergies} onChange={(e) => setAllergies(e.target.value)} placeholder="Allergies (optional)" className="add-pet-modal__input"></textarea>
                     <div className="add-pet-modal__actions">
                         <button type="button" onClick={onClose} className="add-pet-modal__button add-pet-modal__button--close">Close</button>
