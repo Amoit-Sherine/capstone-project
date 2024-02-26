@@ -2,45 +2,27 @@
 @import '../_mixins.scss';
 
 .notifications {
-  &__add-btn {
-    padding: 10px 15px;
-    margin-bottom: 20px;
-    border: none;
-    border-radius: 5px;
-    background-color: $color-vibrant-green;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-
-    &:hover {
-      background-color: darken($color-vibrant-green, 10%);
-    }
-  }
-
-  &__list {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .notification-item {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    padding: 10px;
-    background-color: $color-light-grey;
-    border-radius: 5px;
-
-    &__icon {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
+  @include for-mobile {
+    &__add-btn {
+      display: block;
+      margin: 0 auto; // Center button
+      margin-top: 60px; // Adjust for fixed header
+      background-color: $color-vibrant-green; // Ensure uniform button color
+      &:hover {
+        background-color: darken($color-vibrant-green, 10%);
+      }
     }
 
-    &__details {
+    &__list {
       display: flex;
       flex-direction: column;
-      gap: 5px;
+      gap: 10px;
+      margin-top: 20px; // Spacing after the add button
     }
+  }
+
+  @include for-tablet-and-up {
+    padding-left: 22%; // Adjust to not be covered by the header
+    width: 78%; // Adjust to fit the space available on the right
   }
 }

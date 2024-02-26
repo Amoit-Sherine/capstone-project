@@ -1,69 +1,19 @@
 @import '../_variables.scss';
 @import '../_mixins.scss';
-@import "../global";;
 
 .header {
-  @include for-tablet-and-up {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 20%;
-    height: 100%;
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 20px;
-    border-right: 1px solid $color-slate-grey;
-
-    .header__nav{
-      height: 70%;
-    }
-
-    .header__nav-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      padding: 0;
-      margin: 0;
-    }
-    list{
-      margin: 30px;
-    }
-
-    .header__nav-item {
-      border-radius: 5px;
-      color: $color-dark-slate-grey;
-      text-decoration: none;
-      display: flex;
-      padding-left: 7px;
-      flex-wrap: wrap;
-      align-content: flex-end;
-      justify-content: flex-start;
-      height: 40px;
-      @include for-mid-desktop{
-        font-size: 1.3rem;
-      }
-      @include for-large-desktop{
-        font-size: 1.8rem;
-      }
-      &.active {
-        border-left: 4px solid $color-vibrant-green;
-      }
-      &:hover {
-        box-shadow: 0 2px 5px $color-coral-red;
-      }
-    }
-  }
+  background-color: white;
+  list-style: none;
+  color: black;
 
   @include for-mobile {
-    position: static;
-    flex-direction: row;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
     justify-content: space-between;
     align-items: center;
-    height: auto;
-    width: 100%;
+    z-index: 1000;
 
     .header__nav-list {
       position: fixed;
@@ -71,30 +21,32 @@
       left: 0;
       width: 100%;
       display: flex;
+      flex-direction: column;
+      align-items: center;
       justify-content: space-around;
+      background-color: white;
       list-style: none;
-      background-color: $color-light-grey;
     }
   }
 
-  .header__top {
+  @include for-tablet-and-up {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 20%;
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
     align-items: center;
-    width: 100%;
-    gap: 20px;
-  }
-
-  .header__logo, .header__profile {
-    margin-bottom: 20px;
-    text-decoration: none;
-    color: $color-dark-slate-grey;
-    font-size: 1rem;
-    @include for-mid-desktop{
-      font-size: 1.6rem;
+    padding: 20px;
+    border-right: 1px solid $color-slate-grey;
+    .header__nav-list {
+      list-style: none;
     }
-    @include for-large-desktop{
-      font-size: 1.8rem;
+    .header__nav-item{
+      text-decoration: none;
+      color: black;
     }
   }
 }
