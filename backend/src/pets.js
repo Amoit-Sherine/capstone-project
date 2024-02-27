@@ -1,5 +1,6 @@
 const express = require('express');
 const Pet = require('./models/Pet');
+const {format} = require("date-fns");
 require('dotenv').config();
 
 const router = express.Router();
@@ -26,6 +27,11 @@ router.get('/', async (req, res) => {
     try {
         const userId = req.user.userId;
         const pets = await Pet.findByUserId(userId);
+
+        for (let i = 0; i < pets.length; i++) {
+            pets[i].dob = format(new Date(pets[i].dob), 'yyyy-MM-dd');
+        }
+
         res.json(pets);
     } catch (error) {
         console.log(error);
