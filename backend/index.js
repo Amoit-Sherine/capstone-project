@@ -28,6 +28,9 @@ app.use('/pets', authenticateToken, petsRouter);
 const appointmentsRouter = require('./src/appointments');
 app.use('/appointments', authenticateToken, appointmentsRouter);
 
+const profileRouter = require('./src/profile');
+app.use('/profile', authenticateToken, profileRouter);
+
 const port = 3000;
 
 // Start the server
