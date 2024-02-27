@@ -1,8 +1,11 @@
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import '../../styles/components/UserProfile.scss';
+import {API_URL} from "../../values";
+import {useNavigate} from "react-router-dom";
 
-function UserProfile({ user, onSave, onSignOut }) {
-    const [userInfo, setUserInfo] = useState({ ...user });
+function UserProfile() {
+    const [userInfo, setUserInfo] = useState({ });
+    const navigate = useNavigate();
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -12,17 +15,73 @@ function UserProfile({ user, onSave, onSignOut }) {
         }));
     };
 
-    const handleSave = () => {
-        onSave(userInfo);
-    };
-
     const handleFileChange = (e) => {
         // for file handling logic
     };
 
+    const fetchProfile = () => {
+        fetch(`${API_URL}/profile`, {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${window.localStorage.getItem('token')}`,
+            }
+        })
+            .then(response => {
+                const isOk = response.ok
+
+                response.json().then(resp => {
+                    if(isOk){
+                        setUserInfo(resp)
+                    }else{
+                        alert(resp.message)
+                        throw new Error(resp.message);
+                    }
+                });
+            })
+            .catch(error => {
+                console.log(error)
+            })
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        fetch(`${API_URL}/profile`, {
+            method: 'POST',
+            body: JSON.stringify({...userInfo}),
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${window.localStorage.getItem('token')}`,
+            }
+        })
+            .then(response => {
+                const isOk = response.ok
+
+                response.json().then(resp => {
+                    alert(resp.message)
+
+                    if(!isOk){
+                        throw new Error(resp.message);
+                    }
+                })
+
+            })
+            .catch(error => {
+                console.log(error)
+            })
+
+    };
+
+    const signOut = () => {
+        window.localStorage.removeItem('token')
+        navigate('/')
+    }
+
+    useEffect(fetchProfile, []);
+
     return (
         <div className="user-profile">
-            <form>
+            <form onSubmit={handleSubmit}>
                 <label htmlFor="profile-image">
                     Profile Image:
                     <input type="file" id="profile-image" name="profileImage" onChange={handleFileChange} />
@@ -47,8 +106,8 @@ function UserProfile({ user, onSave, onSignOut }) {
                     Email (prefilled, not editable):
                     <input type="email" name="email" value={userInfo.email} readOnly />
                 </label>
-                <button type="button" className="edit-btn" onClick={handleSave}>Save</button>
-                <button type="button" className="sign-out-btn" onClick={onSignOut}>Sign Out</button>
+                <button type="submit" className="edit-btn">Save</button>
+                <button type="button" className="sign-out-btn" onClick={signOut}>Sign Out</button>
             </form>
         </div>
     );
