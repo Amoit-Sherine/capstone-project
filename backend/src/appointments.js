@@ -1,6 +1,7 @@
 const express = require('express');
 const Appointment = require('./models/Appointment');
 const Pet = require("./models/Pet");
+const {format} = require("date-fns");
 require('dotenv').config();
 
 const router = express.Router();
@@ -22,7 +23,9 @@ router.post('/', async (req, res) => {
             return res.status(403).send({ message: 'Not authorized to access this pet' });
         }
 
-        const newAppointment = await Appointment.create({ pet_id, type, date_time, location });
+        let formatted_date_time = format(new Date(date_time), 'yyyy-MM-dd HH:mm:ss');
+
+        const newAppointment = await Appointment.create({ pet_id, type, date_time: formatted_date_time, location });
         res.status(201).json(newAppointment);
     } catch (error) {
         res.status(400).json({ error: error.message });
@@ -31,7 +34,12 @@ router.post('/', async (req, res) => {
 
 router.get('/', async (req, res) => {
     try {
-        const appointments = await Appointment.findForUser(req.user.userId);
+        let appointments = await Appointment.findForUser(req.user.userId);
+
+        for (let i = 0; i < appointments.length; i++) {
+            appointments[i] = await Appointment.loadPet(appointments[i]);
+            appointments[i].date = format(new Date(appointments[i].date_time), 'yyyy-MM-dd HH:mm');
+        }
 
         res.json(appointments);
     } catch (error) {
