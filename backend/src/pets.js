@@ -9,7 +9,7 @@ router.post('/', async (req, res) => {
     try {
         const { name, type, breed, dob, allergies, medical_history } = req.body;
 
-        if(!(name && type && breed && dob && allergies && medical_history)){
+        if(!(name && type && breed && dob)){
             return res.status(400).send({ message: 'Missing some data' });
         }
 

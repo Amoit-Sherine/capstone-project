@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import '../../styles/components/AddAppointment.scss';
+import {API_URL} from "../../values";
 
 // Assume `pets` is passed as a prop or fetched from global state/context
 function AddAppointment({ onSave, onClose, pets }) {
-
     const [selectedPet, setSelectedPet] = useState('');
     const [appointmentType, setAppointmentType] = useState('');
     const [date, setDate] = useState('');
@@ -20,12 +20,40 @@ function AddAppointment({ onSave, onClose, pets }) {
             return;
         }
 
-        onSave({
-            pet: pets.find(pet => pet.name === selectedPet),
-            type: appointmentType,
-            date: `${date} ${time}`,
-            location,
-        });
+        fetch(`${API_URL}/appointments`, {
+            method: 'POST',
+            body: JSON.stringify({
+                pet_id: selectedPet,
+                date_time: appointmentDateTime,
+                type: appointmentType,
+                location
+            }),
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${window.localStorage.getItem('token')}`,
+            }
+        })
+            .then(response => {
+                const isOk = response.ok
+
+                response.json().then(resp => {
+                    if(isOk){
+                        onSave({
+                            pet: pets.find(pet => pet.id == selectedPet),
+                            type: appointmentType,
+                            date: `${date} ${time}`,
+                            location,
+                        });
+                    }else{
+                        alert(resp.message)
+                        throw new Error(resp.message);
+                    }
+                })
+
+            })
+            .catch(error => {
+                console.log(error)
+            })
     };
 
     return (
@@ -34,8 +62,8 @@ function AddAppointment({ onSave, onClose, pets }) {
                 <form onSubmit={handleSubmit} className="add-appointment-modal__form">
                     <select value={selectedPet} onChange={(e) => setSelectedPet(e.target.value)} className="form-input">
                         <option value="">Select a Pet</option>
-                        {pets.map((pet, index) => (
-                            <option key={index} value={pet.name}>{pet.name}</option>
+                        {(pets || []).map((pet, index) => (
+                            <option key={index} value={pet.id}>{pet.name}</option>
                         ))}
                     </select>
                     <select value={appointmentType} onChange={(e) => setAppointmentType(e.target.value)} className="form-input">

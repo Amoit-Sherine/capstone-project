@@ -1,19 +1,8 @@
 // AddPet.js
 import React, { useState } from 'react';
 import '../../styles/components/AddPet.scss';
-
-// Importing pet images directly
-import dogIcon from '../../assets/pet-icons/dog2.jpeg';
-import catIcon from '../../assets/pet-icons/cat2.jpeg';
-import birdIcon from '../../assets/pet-icons/bird.jpeg';
-import snakeIcon from '../../assets/pet-icons/snake.jpeg';
-
-const petIconMapping = {
-    dog: dogIcon,
-    cat: catIcon,
-    bird: birdIcon,
-    snake: snakeIcon,
-};
+import {API_URL} from "../../values";
+import {usePetIcons} from "../../hooks/pets";
 
 function AddPet({ onClose, onAddPet }) {
     const [petType, setPetType] = useState('dog');
@@ -22,17 +11,49 @@ function AddPet({ onClose, onAddPet }) {
     const [dateOfBirth, setDateOfBirth] = useState('');
     const [allergies, setAllergies] = useState('');
 
+    const petIconMapping = usePetIcons()
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        onAddPet({
-            type: petType,
-            name: petName,
-            dob: dateOfBirth,
-            breed : petBreed,
-            allergies,
-            icon: petIconMapping[petType],
-        });
-        onClose();
+
+        fetch(`${API_URL}/pets`, {
+            method: 'POST',
+            body: JSON.stringify({
+                name: petName,
+                type: petType,
+                breed: petBreed,
+                dob: dateOfBirth,
+                allergies,
+            }),
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${window.localStorage.getItem('token')}`,
+            }
+        })
+            .then(response => {
+                const isOk = response.ok
+
+                response.json().then(resp => {
+                    if(isOk){
+                        onAddPet({
+                            type: petType,
+                            name: petName,
+                            dob: dateOfBirth,
+                            breed: petBreed,
+                            allergies
+                        });
+                        onClose();
+                    }else{
+                        alert(resp.message)
+                        throw new Error(resp.message);
+                    }
+                })
+
+            })
+            .catch(error => {
+                console.log(error)
+            })
+
     };
 
     return (

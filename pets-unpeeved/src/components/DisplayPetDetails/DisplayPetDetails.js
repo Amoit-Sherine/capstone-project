@@ -1,12 +1,15 @@
 // DisplayPetDetails.js
 import React from 'react';
 import '../../styles/components/DisplayPetDetails.scss';
+import {usePetIcons} from "../../hooks/pets";
 
 function DisplayPetDetails({ pet, onClose }) {
+    const petIconMapping = usePetIcons()
+
     return (
         <div className="pet-details-modal">
             <div className="pet-details-modal__content">
-                <img src={pet.icon} alt={pet.name} className="pet-details-modal__icon" />
+                <img src={petIconMapping[pet.type]} alt={pet.name} className="pet-details-modal__icon" />
                 <h3>{pet.name}</h3>
                 <p>Breed: {pet.breed}</p>
                 <p>Date of Birth: {pet.dob}</p>

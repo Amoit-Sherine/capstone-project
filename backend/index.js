@@ -1,9 +1,11 @@
 const express = require('express');
 const jwt = require('jsonwebtoken');
+const cors = require('cors')
 const app = express();
 require('dotenv').config();
 
 app.use(express.json());
+app.use(cors())
 
 const authenticateToken = (req, res, next) => {
     const authHeader = req.headers['authorization'];
@@ -22,6 +24,9 @@ app.use('/auth', authRouter);
 
 const petsRouter = require('./src/pets');
 app.use('/pets', authenticateToken, petsRouter);
+
+const appointmentsRouter = require('./src/appointments');
+app.use('/appointments', authenticateToken, appointmentsRouter);
 
 const port = 3000;
 
