@@ -22,7 +22,7 @@ class Pet {
             breed,
             dob,
             allergies,
-            medical_history,
+            medical_history: 'none',
         });
 
         return Pet.findById(id);
