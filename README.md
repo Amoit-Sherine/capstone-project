@@ -31,16 +31,14 @@ The primary users of Pets UnPeeved are pet owners looking for an organized way t
 - **Backend:** Node.js with Express.js for RESTful API services.
 - **Database:** MySQL for storing user and pet data.
 - **Authentication:** JSON Web Tokens (JWT) for secure user authentication.
-- **Mapping:** Google Maps API for displaying nearby pet-friendly activities.
 
 ### APIs
 
-- **Google Maps API:** To retrieve and display nearby pet-related activities and services.
 
 ### Sitemap
 
 1. **Login/Register Page:** For user authentication and registration.
-2. **Pet Management Page:** Where users can manage their pets’ profiles and appointments.
+2. **Pet Management Page:** Where users can manage their pets’ profiles.
 3. **Home Page:** Featuring community posts and activities map.
 4. **Notifications Page:** For managing and receiving reminders and notifications.
 
@@ -74,6 +72,7 @@ The project is scoped as a series of sprints focusing on backend setup, frontend
 
 ## Nice-to-haves
 
-- **User Profile Customization:** Allowing users to add profile pictures and customize their profiles.
 - **In-App Notifications:** Real-time alerts within the app for appointments and community interactions.
+- **Google Maps API:** To retrieve and display nearby pet-related activities and services.
 - **Social Sharing:** Enable sharing of posts to social media platforms directly from the app.
+- **Link appontments to my pet management site.
