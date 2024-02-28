@@ -13,7 +13,7 @@ router.post('/signup', async (req, res) => {
     const { name, email, password } = req.body;
 
     try {
-        if(!(name && email && password)){
+        if(!(email && password)){
             return res.status(400).send({ message: 'Missing some data' });
         }
 

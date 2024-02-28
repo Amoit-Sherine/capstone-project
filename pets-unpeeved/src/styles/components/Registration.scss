@@ -17,6 +17,7 @@
   align-items: center;
   color: $color-dark-slate-grey;
 
+
   // Tablet styles
   @include for-tablet {
     width: 50%; // Adjust width for tablet devices
@@ -29,6 +30,9 @@
 
   &__title, &__form-group, &__input, &__submit {
     width: 100%;
+  }
+  &__title{
+    text-align: center;
   }
 
   &__input, &__submit {
@@ -43,6 +47,7 @@
     border: none;
     color: white;
     cursor: pointer;
+    border-radius: 5px;
 
     &:hover {
       background-color: darken($color-vibrant-green, 10%);

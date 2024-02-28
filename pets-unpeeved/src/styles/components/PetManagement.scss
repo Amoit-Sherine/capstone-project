@@ -1,0 +1,82 @@
+@import '../_variables.scss';
+@import '../_mixins.scss';
+
+.pet-management {
+  // Ensure content is to the right of the fixed header and not blocked
+  @include for-mobile{
+    margin-top: 20px;
+  }
+  @include for-tablet {
+    margin-left: 30%;
+    width: calc(60% - 20px);
+    margin-top: 3%;
+  }
+  @include for-desktop{
+    margin-left: 30%;
+    width: calc(60% - 20px);
+    margin-top: 3%;
+    font-size: 18px;
+  }
+  @include for-large-desktop{
+    font-size: 25px;
+  }
+
+  &__add-btn {
+    background-color: $color-vibrant-green;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 10px ;
+    border-radius: 5px;
+    @include for-mobile{
+      margin-top: 5px;
+      margin-left: 40%;
+    }
+    @include for-large-desktop{
+      font-size: 25px;
+    }
+    &:hover {
+      background-color: darken($color-vibrant-green, 10%);
+    }
+    &:active {
+      transform: scale(0.98);
+    }
+  }
+
+  &__pets-display {
+    margin-top: 10%;
+    display: grid;
+    gap: 60px;
+
+    @include for-mobile {
+      grid-template-columns: repeat(3, 1fr); // Adjust for smaller icons on mobile
+      padding-left: 80px;
+      margin-top: 20%;
+      gap: 200px;
+    }
+    @include for-tablet{
+      grid-template-columns: repeat(2, 0.5fr);
+      padding-left: 0;
+      margin-top: 10%;
+      gap: 165px;
+    }
+    @include for-desktop{
+      grid-template-columns: repeat(4, 1fr);
+      gap: 165px;
+    }
+  }
+
+  &__pet-icon {
+    width: 50px;
+    height: 50px;
+    // Ensure icons fit in a 3x3 grid within available space
+    @include for-mobile {
+      width: 10px; // Smaller icons for mobile
+      height: 10px;
+    }
+    @include for-tablet{
+      width: 10px; // Smaller icons for mobile
+      height: 10px;
+    }
+  }
+}
